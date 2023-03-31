@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from api.models import Book , LibUser , RentBook
-from api.serializers import BookSerializer , LibUserSerializer , RentBookSerializer
+from django.shortcuts import render 
+from rest_framework import viewsets , generics
+from api.models import Book , LibUser , RentBook , BookCategory
+from api.serializers import BookSerializer , LibUserSerializer , RentBookSerializer , BookCategorySerializer
 from rest_framework.response import Response
 from .pagination import CustomPagination
 
@@ -38,3 +38,8 @@ class RentBookViewSet(viewsets.ModelViewSet):
     serializer_class = RentBookSerializer       
     pagination_class = CustomPagination
 
+
+class BookCategoryListView(generics.ListAPIView):
+    queryset = BookCategory.objects.all()
+    serializer_class = BookCategorySerializer
+    

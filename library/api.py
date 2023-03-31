@@ -7,5 +7,3 @@ router.register(r"lib-users" , views.LibUserViewSet)
 router.register(r"rented-books" , views.RentBookViewSet)
 
 
-for url in router.urls :
-    print(url , '/n')

@@ -22,3 +22,12 @@ class RentBook(models.Model):
 
     def __str__(self):
         return self.rentDate    
+
+
+class BookCategory(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(null=True)
+
+    def __str__(self):
+        return self.name    
+
